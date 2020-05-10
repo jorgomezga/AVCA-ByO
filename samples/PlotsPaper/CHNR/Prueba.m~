@@ -1,0 +1,49 @@
+clear variables
+clc
+close all
+
+% addpath( genpath( '/home/jorge/Documentos/Repositorio' ) )
+
+addpath( genpath( '/home/jorge/qov-byo' ) )
+
+sDir = '/home/jorge/Dropbox/Toolbox_Part3/Audios';
+
+[vSignalNorm, iFs]  = audioread( fullfile( sDir, '1-a_n.wav' ) );
+vSignalPath  = audioread( fullfile( sDir, '1424-a_n.wav' ) );
+
+
+% sIn = '/mnt/data/BasesDatos/BD_HUPA/BDHUPAseg_UoC_16_a_69_rev2/PorCondicion/Normal/aaa.wav';
+% sIn = '/mnt/data/BasesDatos/BD_HUPA/BDHUPAseg_UoC_16_a_69_rev2/PorCondicion/Pathol/araapath.wav';
+% [vSignalnorm, iFs] = ...
+%     audioread( sIn );
+    
+
+iFrame = ceil( 40e-3*iFs );
+iSolape = ceil( 0.5*iFrame );
+sTipo = 'R';
+
+%% Norm
+mSignal = Enventanado( vSignalNorm, iFs, iFrame, iSolape, sTipo, [], 0 );
+
+for i=10%:size( mSignal, 1 )
+    vFrame = mSignal(i,:);
+figure
+    HNRi( vFrame, iFs )
+end
+
+set(gcf,'color','w');
+
+%% Path
+mSignal = Enventanado( vSignalPath, iFs, iFrame, iSolape, sTipo, [], 0 );
+
+for i=10%:size( mSignal, 1 )
+    vFrame = mSignal(i,:);
+figure
+    HNRi( vFrame, iFs )
+end
+legend( {'Speech Spectrum', 'Noise Spectrum'} )
+set(gcf,'color','w');
+
+% iNumPtos = size( mSignal, 1 );
+% [vValoresGNE, rFactorGNE] =...
+%     GNE( vSignalnorm, iFs, 61000, length( vSignalnorm ), iNumPtos, 100e-3, 500, 500 );
