@@ -14,6 +14,7 @@ It contains the code used in the a series dedicated to the Automatic Voice Condi
 # Prerrequisites
 
 Some external toolboxes were used for the computation of certain features in the paper, including:
+
 - The VoiceBox toolbox for the MFCC computation and use of some auxiliary functions (http://www.ee.ic.ac.uk/hp/staff/dmb/voicebox/voicebox.html) [M Brookes. Voicebox: Speech processing toolbox for matlab. software,[may 2020], 2020.]
 
 - The Covarep toolbox for the computation of CPP (https://covarep.github.io/covarep/) [Gilles Degottex, John Kane, Thomas Drugman, Tuomo Raitio, and Stefan Scherer. Covarep A collaborative voice analysis repository for speech technologies. In 2014 ieee international conference on acoustics, speech and signal processing (icassp), pages 960–964. IEEE, 2014.] 
@@ -24,10 +25,11 @@ Some external toolboxes were used for the computation of certain features in the
 
 - The implementation in (https://www.mathworks.com/matlabcentral/fileexchange/19148-hurst-parameter-estimate) to compute the Hurst exponent
 
-- the functions in (https://github.com/jdariasl/ME) for the computation of the Markovian entropies [J.D. Arias-Londoño and J.I Godino-Llorente. Entropies from Markov Models as Complexity Measures of Embedded Attractors. Entropy, 17(6):3595–3620, 2015.]
+- The functions in (https://github.com/jdariasl/ME) for the computation of the Markovian entropies [J.D. Arias-Londoño and J.I Godino-Llorente. Entropies from Markov Models as Complexity Measures of Embedded Attractors. Entropy, 17(6):3595–3620, 2015.]
 
 - The HCTSA toolbox for the computation of D2 and LLE (https://github.com/benfulcher/hctsa) [Ben D Fulcher, Max A Little, and Nick S Jones. Highly comparative time-series analysis: the empirical structure of time series and their methods. Journal of the Royal Society Interface, 10(83):20130048, 2013]
-- the Modulation Toolbox library ver 2.1 to calculate MS (https://sites.google.com/a/uw.edu/isdl/projects/modulation-toolbox) [Les Atlas, Pascal Clark and Steven Schimmel, Modulation Toolbox Version 2.1 for MATLAB, https://sites.google.com/a/uw.edu/isdl/projects/modulation-toolbox, University of Washington, September 2010.]
+
+- The Modulation Toolbox library ver 2.1 to calculate MS (https://sites.google.com/a/uw.edu/isdl/projects/modulation-toolbox) [Les Atlas, Pascal Clark and Steven Schimmel, Modulation Toolbox Version 2.1 for MATLAB, https://sites.google.com/a/uw.edu/isdl/projects/modulation-toolbox, University of Washington, September 2010.]
 
 - The implementation in (https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/) to calculate PLP [Daniel P. W. Ellis. PLP and RASTA (and MFCC, and inversion) in Matlab, 2005. online web resource.]
 
