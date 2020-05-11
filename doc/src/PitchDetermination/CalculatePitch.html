@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CalculatePitch</title>
+  <meta name="keywords" content="CalculatePitch">
+  <meta name="description" content="Calculates the pitch of a given frame using different pitch">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PitchDetermination</a> &gt; CalculatePitch.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PitchDetermination&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>CalculatePitch
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Calculates the pitch of a given frame using different pitch</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [iF0Out, vF0] = CalculatePitch( vSignal, iFs, iNumberOfFrames, sType ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the pitch of a given frame using different pitch
+ implementations
+
+ Inputs:
+   vSignal              = Input signal
+   iFs                  = Sampling frequency
+   iNumberOfFrames      = desired number of frames. The overlapping is
+                          varied to ensure that the number of frames is
+                          achieved. The default value, iDesiredNumberOfFrames, 
+                          is twice the number of the frames that will result
+                          if the window size was fit to 40e-3. This emulates an
+                          overlap of 50%.
+
+   sType  =    'Boyanov': Dynamic clipping in the temporal domain
+               according to:
+                   B. Boyanov, S. Hadjitodorov, B. Teston, D. Doskov. Robust hybrid pitch
+                   detector for pathologic voice analysis. Larynx 97, Jun 1997, Marseille, France. pp.55-58.
+
+               'Rabiner_StaticClip': Static clipping -&gt; Signal is clipped using
+                       static thresholds
+
+               'Rabiner_LPC'
+               metodo=2: Correlación: se calcula el pitch sobre la correlación del
+                         error de una predicción LPC
+
+               'Rabiner_Cesptral'
+               metodo=3: Cepstrum: se calcula el pitch utilizando el cepstrum
+
+               'Kasuya': 
+                   Kasuya, H., Ogawa, S., Kikuchi, Y., &amp; Ebihara, S. (1986). 
+                   An acoustic analysis of pathological voice and its application 
+                   to the evaluation of laryngeal pathology. 
+                   Speech communication, 5(2), 171-181.
+ Outputs:
+   vFo  = Pitch value</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../../src/PitchDetermination/boyanov/PitchBoyanov.html" class="code" title="function iFo = PitchBoyanov( vFrame, iFs, iT0 )">PitchBoyanov</a>	Calculates the pitch of a given frame using the method described in:</li><li><a href="../../src/PitchDetermination/kasuya_feijoo/PitchSegKas.html" class="code" title="function vT0 = PitchSegKas( vFrame, iFs )">PitchSegKas</a>	Calculates the pitch of a given frame using the method described by</li><li><a href="../../src/PitchDetermination/rabiner/PitchCeps.html" class="code" title="function iF0=PitchCeps( vFrame, iFs, iT0 )">PitchCeps</a>	Pitch estimation using the LPC method of Rabiner</li><li><a href="../../src/PitchDetermination/rabiner/PitchClip.html" class="code" title="function iF0 = PitchClip( vFrame, iFs, iT0 )">PitchClip</a>	Pitch estimation using static clipping</li><li><a href="../../src/PitchDetermination/rabiner/PitchCorr.html" class="code" title="function iF0 = PitchCorr( vFrame, iFs, iT0 )">PitchCorr</a>	Pitch estimation using the LPC method of Rabiner</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../../src/PitchDetermination/boyanov/PicosMayores.html" class="code" title="function [vAmax, vPosAmax, mPicosPos]=PicosMayores( vSignal, iFs, iInicio, iFinal, lMetodo )">PicosMayores</a>	Calculate the highest energy peaks, cycle by cycle of the input voice</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

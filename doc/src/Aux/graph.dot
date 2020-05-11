@@ -1,0 +1,17 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  CalcularEmbDim -> CalcularTao;
+  CalcularEmbDim -> cao_dim;
+  SilentDetectorThreshold -> LogEnergy;
+  SilentDetectorThreshold -> ZeroCrossingRate;
+
+  CalcularEmbDim [URL="CalcularEmbDim.html"];
+  CalcularTao [URL="CalcularTao.html"];
+  DeFrame [URL="DeFrame.html"];
+  LPC2 [URL="LPC2.html"];
+  LogEnergy [URL="LogEnergy.html"];
+  QuitaExtremos [URL="QuitaExtremos.html"];
+  SilentDetectorThreshold [URL="SilentDetectorThreshold.html"];
+  ZeroCrossingRate [URL="ZeroCrossingRate.html"];
+  cao_dim [URL="cao_dim.html"];
+}

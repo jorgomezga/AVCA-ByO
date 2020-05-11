@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of PitchCorr</title>
+  <meta name="keywords" content="PitchCorr">
+  <meta name="description" content="Pitch estimation using the LPC method of Rabiner">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PitchDetermination</a> &gt; <a href="#">rabiner</a> &gt; PitchCorr.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PitchDetermination/rabiner&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>PitchCorr
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Pitch estimation using the LPC method of Rabiner</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function iF0 = PitchCorr( vFrame, iFs, iT0 ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Pitch estimation using the LPC method of Rabiner
+
+ Inputs:
+   vFrame               = Input vFrame
+   iFs                  = Sampling frequency
+   iT0                  = Previous calculation of the pitch period
+ Outputs:
+   vClippedFrame        = Clipped frame</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/Aux/LPC2.html" class="code" title="function [vA,rG] = LPC2( vFrame, iOrderP, iPlot )">LPC2</a>	Computes the coeffiecients vA and the gain of the filter using a LPC</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/PitchDetermination/CalculatePitch.html" class="code" title="function [iF0Out, vF0] = CalculatePitch( vSignal, iFs, iNumberOfFrames, sType )">CalculatePitch</a>	Calculates the pitch of a given frame using different pitch</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

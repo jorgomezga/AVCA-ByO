@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of DeFrame</title>
+  <meta name="keywords" content="DeFrame">
+  <meta name="description" content="Reconstructs the vSenal signal from the windows frames created by the">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">Aux</a> &gt; DeFrame.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/Aux&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>DeFrame
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Reconstructs the vSenal signal from the windows frames created by the</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function vSenal=DeFrame( mTramas, iLongVentana, iDesplazamiento) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Reconstructs the vSenal signal from the windows frames created by the
+ function deframe.m
+
+ Input parameters:
+ mFrames: Matrix of iNumWindows x iLongWindow (number of
+           windows x window length) with the window frames 
+        to be reconstructed
+ iLongWindow: Frame length
+ iDisplacement: Displacement between successive windows
+
+ Output parameters:
+ vSenal: Complete signal reconstructed with the window frames 
+
+ When deconstructing the signal with enframe.m, the last samples that
+ do not enter a new window or frame are discarded. Therefore, this function
+ will not rebuild the vSenal signal exactly except in the case iLongitudSenal = iLongFinalSenal,
+ To avoid this, you must fill the signal with zeros until making iLongitudSenal = iLongitudFinalSenal;
+ when used in combination with calculaVentanas for the calculation of the fine structure of
+ the voice signal, structureFina.m, this is taken into account.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../../src/PerturbationFluctuation/Perturbation/GNE/EstructuraFina.html" class="code" title="function vEstructuraFina=EstructuraFina( vSenal, iFs, iOrdenLPC, rLongVentana, rDesplazamiento, cWin )">EstructuraFina</a>	Calculate the fine structure or the glottic excitation signal (FineStructure)</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

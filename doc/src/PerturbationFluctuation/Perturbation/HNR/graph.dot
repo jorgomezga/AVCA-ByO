@@ -1,0 +1,8 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  HNRYum -> HNRiYumBoy;
+
+  HNRYum [URL="HNRYum.html"];
+  HNRiYum [URL="HNRiYum.html"];
+  HNRiYumBoy [URL="HNRiYumBoy.html"];
+}

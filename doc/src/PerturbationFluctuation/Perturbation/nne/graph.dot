@@ -1,0 +1,9 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  NNE -> NNEi;
+  NNEs -> NNEi;
+
+  NNE [URL="NNE.html"];
+  NNEi [URL="NNEi.html"];
+  NNEs [URL="NNEs.html"];
+}

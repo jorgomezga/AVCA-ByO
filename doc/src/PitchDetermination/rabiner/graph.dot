@@ -1,0 +1,8 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+
+  PitchCeps [URL="PitchCeps.html"];
+  PitchClip [URL="PitchClip.html"];
+  PitchCorr [URL="PitchCorr.html"];
+  StaticClip [URL="StaticClip.html"];
+}

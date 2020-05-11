@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of PerturbationFluctuation</title>
+  <meta name="keywords" content="PerturbationFluctuation">
+  <meta name="description" content="Calculation of the perturbation and fluctuation parameters">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; PerturbationFluctuation.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>PerturbationFluctuation
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Calculation of the perturbation and fluctuation parameters</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [vParametros, caNombres]=PerturbationFluctuation( vFrame, iFs ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculation of the perturbation and fluctuation parameters
+
+ Inputs:
+   vFrame               = Input vFrame
+   iFs                  = Sampling frequency
+
+ Outputs:
+   vParametros          = Pitch value of the current frame
+
+ Los par�metros contenidos en el vector P son los siguientes:
+     P=[Fo To HNR CHNR NHR VTI SPI NNE jita jitt RAP PPQ sPPQ ShdB shim
+        APQ sAPQ Fftr FTRI Fatr ATRI GNE IB HFEUBI LFEUBI ILFEUBI MN MPN K IK];
+ Fo:      frecuencia fundamental media (Hz)
+ To:      periodo fundamental medio (s)
+ HNR:     Relaci�n arm�nico a ruido seg�n el m�todo de Yumoto (en dB)
+ CHNR:    Relaci�n arm�nico a ruido seg�n el m�todo de Guus de Krom (en dB)
+ NHR:     Relaci�n ruido a arm�nico en los m�rgenes de frecuencia que usa la Kay, midiendo el ruido en el cepstrum (en tantos por uno)
+ VTI:     Indice de turbulencia de la voz de la Kay. La medida se hace utilizando el cepstrum. (En tantos por uno)
+ SPI:     Indice de fonaci�n suave de la Kay. La medida se hace utilizando el cepstrum. (En tantos por uno)
+ NNE:     Normalized Noise energy
+ GNE:     Glottal to Noise Excitation Ratio 
+ jita:    jitter absoluto medio (microsegundos)
+ jitt:    jitter relativo respecto al periodo fundamental medio (%)
+ RAP:     Perturbaci�n media relativa del periodo fundamental (%)
+ PPQ:     Cociente de perturbaci�n del periodo fundamental (%)
+ sPPQ:    PPQ suavizado. Utiliza un factor de suavizado de 55 ciclos glotales (%)
+ ShdB:    shimmer medio (dB)
+ shim:    shimmer relativo a la amplitud de pico media (%)
+ APQ:     Cociente de perturbaci�n de la amplitud (%)
+ sAPQ:    APQ suavizado. Usa un factor de suavizado de 55 ciclos glotales (%)
+ Fftr:    frecuencia del tremor de Fo (Hz)
+ FTRI:    Indice de intensidad del tremor de Fo (%)
+ Fatr:    frecuencia del tremor de amplitud (Hz)
+ ATRI:    Indice de intensidad del tremor de amplitud (%)
+ IB:      la interferencia del indice de bicoherencia
+ HFEUBI:  el valor relativo de energia a alta frec. del indice de bicoherencia unidimensional 
+ LFEUBI:  el valor relativo de energia a baja frec. del indice de bicoherencia unidimensional
+ ILFEUBI: interferencia del valor de energ�a a baja frec. del indice de bicoherencia unidimensional 
+ MN:      la variacion del ruido estimado por medio del modulo del bispectrum
+ MPN:     la variacion del ruido estimado pero teniendo en cuenta la variacion de fase
+ IK:      la interferencia de kurtosis
+ PLI:     pathological likelihood index</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../../src/PerturbationFluctuation/Perturbation/GNE/GNE.html" class="code" title="function [vGNEValues, rGNEFactor]=GNE( vSignal, iFs, iInicio, iFinal,iNumFrames, rFrameSize, iBW, iFShift )">GNE</a>	Calculates the GNE -Glottal-to-Noise Excitation ratio- according to</li><li><a href="../../src/PerturbationFluctuation/Perturbation/HNR/HNRYum.html" class="code" title="function [vHNR, rHNR]=HNRYum( vSignal, iFs, iInicio, iFinal, iNumPuntos)">HNRYum</a>	Calculates the harmonic ratio to HNR noise in dB according to the Yumoto method</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/ParamPitch.html" class="code" title="function [vPPS, vPAS, vPitchCont, vAmpCont]=ParamPitch( vSignal, iFs, iInicio, iFinal, lMetodo)">ParamPitch</a>	Calculates the pitch period and pitch amplitude sequences of the input voice</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/apq.html" class="code" title="function rA=apq(vPAS)">apq</a>	Calculates the amplitude disturbance ratio in % (APQ).</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/jitter.html" class="code" title="function [rJitta, rJitt]=jitter( vPPS )">jitter</a>	Calculates the jitter of the voice signal. Calculate its absolute value</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/ppq.html" class="code" title="function rP=ppq( vPPS )">ppq</a>	Calculates the disturbance quotient of the pitch period in % (RAP).</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/rap.html" class="code" title="function rP=rap( vPPS )">rap</a>	Calculates the relative average disturbance of the pitch period in % (RAP).</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/sapq.html" class="code" title="function rA=sapq(vPAS, iFactor )">sapq</a>	Calculates the smoothed amplitude disturbance ratio in % (sAPQ)</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/shimmer.html" class="code" title="function [rShdB, rShim]=shimmer( vPAS )">shimmer</a>	Calculates the shimmer of the signal. Calculate its absolute value</li><li><a href="../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/sppq.html" class="code" title="function rP=sppq( vPPS, iFactor )">sppq</a>	Calculates the disturbance ratio of the smoothed amplitude in % (sPPQ)</li><li><a href="../../src/PerturbationFluctuation/Perturbation/nne/NNE.html" class="code" title="function [vNNE, rNNEmean]=NNE( vSignal, iFs, iInicio, iFinal, iNumPuntos, iFo )">NNE</a>	Calculates the normalized noise energy (NNE) of a speech segment (according to</li><li><a href="../../src/PerturbationFluctuation/tremor/Tremor.html" class="code" title="function [rFftr, rFatr, rFTRI, rATRI]=Tremor( vSignal, iFs )">Tremor</a>	Calculates the tremor (parameters that modulate the pitch period and</li><li><a href="../../src/PitchDetermination/boyanov/PitchBoyanov.html" class="code" title="function iFo = PitchBoyanov( vFrame, iFs, iT0 )">PitchBoyanov</a>	Calculates the pitch of a given frame using the method described in:</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

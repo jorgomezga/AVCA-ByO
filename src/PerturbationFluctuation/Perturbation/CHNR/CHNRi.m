@@ -1,7 +1,6 @@
 function HNRi= CHNRi( vFrame, iFs )
 
-% Calculates the harmonic-to-noise ratio (HNR) of a voice segment, using
-% the method used by Guus de Krom.
+% Calculates the cepstral harmonic-to-noise ratio (CHNR) using the method by Guus de Krom.
 %
 % Input parameters
 %       vFrame: the voice frame. It is supposed to be at least as long
@@ -17,12 +16,12 @@ function HNRi= CHNRi( vFrame, iFs )
 
 if nargin < 2, error( 'Not enough input parameters!' ); end
 
-% Check that the vector is of type row 
-if ~isvector( vFrame )
-    error( 'El parámetro vSignal no es un vector columna' ); 
-elseif size( vFrame, 2 ) == 1
+% Check that the vector is of type row
+if ~isvector( vFrame ) 
+    error( 'vSignal is not a vector!' );
+elseif size( vFrame, 2 ) == 1 
     vFrame=vFrame'; 
-end 
+end
 
 % find and fsup are the lower and upper frequencies (in Hz) of the
 % frequencies range at which the HNR is calculated.

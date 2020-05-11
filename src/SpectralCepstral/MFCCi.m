@@ -1,27 +1,18 @@
 function vParametros=MFCCi( vFrame, iFs, sTipo, iNumCoef, iNumFilters, iLowFreq, iHighFreq )
 
-% Calculate the mel cepstrum of a signal frame
+% Calculate the mel-frequency cepstrum coefficients of a signal frame
 %
 % Simple use:
 %    vParametros=MFCCi(vFrame, iFs)	      % calculate mel cepstrum with 12 coefs
 %    vParametros=MFCCi(vFrame, iFs, 'e0') % include log energy, 0th cepstral coef
 %
-% Input parameters: 
+% Input parameters:
 %    vFrame	 speech signal
 %    iFs         sample rate in Hz (default 11025)
 %    sTipo       any sensible combination of the following:
-%        't'  triangular shaped filters in mel domain (default)
-%        'n'  hanning shaped filters in mel domain
-%        'm'  hamming shaped filters in mel domain
-%        'p'  filters act in the power domain
-%        'a'  filters act in the absolute magnitude domain (default)
 %        '0'  include 0'th order cepstral coefficient
 %        'e'  include log energy
-%        'z'  highest and lowest filters taper down to zero (default)
-%        'y'  lowest filter remains at 1 down to 0 frequency and
-%             highest filter remains at 1 up to nyquist freqency
 %        'E'  parameters are normalized with respect to the energy.
-%        'v'  normalizar la amplitud de los filtros entre su anchura.
 %    iNumCoef      number of MFCC coefficients  (default 12)
 %    iNumFilters   number of filters in filterbank (default floor(3*log(iFs)) )
 %    iLowFreq      low end of the lowest filter as a fraction of iFs (default = 0)
@@ -35,15 +26,15 @@ if nargin<3, sTipo='M'; end
 if nargin<4, iNumCoef=12; end
 if nargin<5, iNumFilters=floor(3*log(iFs)); end
 if nargin<7
-   iHighFreq=0.5;   
-   if nargin<6, iLowFreq=0; end
+    iHighFreq=0.5;
+    if nargin<6, iLowFreq=0; end
 end
 
 % Check that the vector is of type column
-if ~isvector( vFrame ) 
+if ~isvector( vFrame )
     error( 'vSignal is not a vector!' );
-elseif size( vFrame, 2 ) ~= 1 
-    vFrame=vFrame'; 
+elseif size( vFrame, 2 ) ~= 1
+    vFrame=vFrame';
 end
 
 iNFFT=pow2( floor(log2( length(vFrame) ) ) );
@@ -66,7 +57,7 @@ if any(sTipo=='p')
     pot = vEspectro( a:b ).*conj( vEspectro( a:b ) );
     umbral_pot = max( pot )*1E-6;
     y = max( m*pot', umbral_pot);
-else               
+else
     % Filters operate in the amplitude domain.
     amp = abs( vEspectro( a:b ) );
     umbral_amp = max( amp )*1E-3;
@@ -75,7 +66,7 @@ end
 
 % Calculate the logarithm of the energy of each filter.
 y = log(y);
-    
+
 % Transform to the cepstrum domain.
 vParametros = rdct( y );
 
@@ -84,25 +75,25 @@ vParametros = vParametros / iNumFilters;
 
 iNumCoef=iNumCoef+1;
 if iNumFilters>iNumCoef
-   vParametros( iNumCoef+1:end )=[];
+    vParametros( iNumCoef+1:end )=[];
 elseif iNumFilters<iNumCoef
-   vParametros=[vParametros; zeros( iNumCoef-iNumFilters, 1)];
+    vParametros=[vParametros; zeros( iNumCoef-iNumFilters, 1)];
 end
 
 % Coefficient normalization with respect to the 0th coefficient
 if any(sTipo=='E')
-   for i=2:iNumCoef  % iNumCoef number of cepstral coefficients excluding 0'th coefficient 
-      vParametros(i)=vParametros(i)/(vParametros(1)+eps);    
-   end
+    for i=2:iNumCoef  % iNumCoef number of cepstral coefficients excluding 0'th coefficient
+        vParametros(i)=vParametros(i)/(vParametros(1)+eps);
+    end
 end
 
 % include 0'th order cepstral coefficient
 if ~any(sTipo=='0')
-   vParametros(1)=[];
+    vParametros(1)=[];
 end
 
 % include log energy
 if any(sTipo=='e')
-   rLogEn=LogEnergia( vFrame );
-   vParametros=[rLogEn; vParametros];
+    rLogEn=LogEnergia( vFrame );
+    vParametros=[rLogEn; vParametros];
 end

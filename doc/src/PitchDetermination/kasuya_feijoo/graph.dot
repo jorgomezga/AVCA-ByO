@@ -1,0 +1,10 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  PitchKas -> PitchSegKas;
+  PitchMedio -> PitchKas;
+
+  PicosKas [URL="PicosKas.html"];
+  PitchKas [URL="PitchKas.html"];
+  PitchMedio [URL="PitchMedio.html"];
+  PitchSegKas [URL="PitchSegKas.html"];
+}

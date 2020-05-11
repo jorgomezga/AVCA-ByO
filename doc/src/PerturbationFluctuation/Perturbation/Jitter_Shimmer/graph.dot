@@ -1,0 +1,23 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  apq -> pq;
+  ppq -> pq;
+  rap -> pq;
+  sapq -> pq;
+  sppq -> pq;
+
+  ParamPitch [URL="ParamPitch.html"];
+  SecuenPitch [URL="SecuenPitch.html"];
+  SeparaCiclos [URL="SeparaCiclos.html"];
+  apq [URL="apq.html"];
+  feijoo_pert [URL="feijoo_pert.html"];
+  jitter [URL="jitter.html"];
+  jitter_env [URL="jitter_env.html"];
+  ppq [URL="ppq.html"];
+  pq [URL="pq.html"];
+  rap [URL="rap.html"];
+  sapq [URL="sapq.html"];
+  shimmer [URL="shimmer.html"];
+  shimmer_env [URL="shimmer_env.html"];
+  sppq [URL="sppq.html"];
+}

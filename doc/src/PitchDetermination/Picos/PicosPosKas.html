@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of PicosPosKas</title>
+  <meta name="keywords" content="PicosPosKas">
+  <meta name="description" content="Computes the amplitudes P and the positions i_P of the positive peaks,">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PitchDetermination</a> &gt; <a href="#">Picos</a> &gt; PicosPosKas.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PitchDetermination/Picos&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>PicosPosKas
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Computes the amplitudes P and the positions i_P of the positive peaks,</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [P, i_P, picos]=PicosPosKas(vSignal, iFs, iInicio, iFinal, T) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Computes the amplitudes P and the positions i_P of the positive peaks, 
+ cycle by cycle, of the input voice; it also returns the signal peaks 
+ Of the same duration as s
+
+ Input parameters:
+   vSignal:    contains the complete speech signal in row or column vector
+   Fs:         the sampling frequency
+   iStart:     first sample of the section to be analyzed
+   iFinal:     last sample of the section to be analyzed
+   T:          the sequence of pitch period values (in samples) calculated
+               on 40ms windows, with 20ms offsets, as they do
+               Kasuya and Feijoo. It is the result of applying the PitchKas function.
+
+ Output parameters:
+   P:          amplitudes of the positive peaks, cycle to cycle, of the
+               speech sample
+   i_P:        positions of the positive peak, cycle by cycle, of the voice
+               Peaks of the same duration as vSignal with the peaks found</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/PerturbationFluctuation/Perturbation/Jitter_Shimmer/SecuenPitch.html" class="code" title="function [vPPS, vPAs, vPitchCont, vAmpCont]=SecuenPitch( vSignal, iFs, iInicio, iFinal, iMetodo)">SecuenPitch</a>	Calculates the pitch or amplitude sequences given a vSignal</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

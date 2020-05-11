@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of NNEi</title>
+  <meta name="keywords" content="NNEi">
+  <meta name="description" content="Calculates the normalized noise energy (NNE) of a voice segment according to">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Perturbation</a> &gt; <a href="#">nne</a> &gt; NNEi.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Perturbation/nne&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>NNEi
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>Calculates the normalized noise energy (NNE) of a voice segment according to</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function vNNEi=NNEi(s, Fs, fo, mBandas, bGraficar ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the normalized noise energy (NNE) of a voice segment according to
+ the Kasuya method [1]. Different bands of frequency can be used to perform the calculation.
+
+ [1] H. Kasuya, S. Ogawa, K. Mashima and S. Ebihara. &quot;Normalized noise energy
+ as an acoustic measure to evaluate pathologic voice &quot;, J.Acoust.Soc.Am.,
+ vol. 80, no. 5, pp. 1329-1334, 1986.
+
+ Input parameters:
+   s:    Row vector with the input voice segment. It has a duration long
+         enough to met the resolution in frequency required. It must be non-silent.
+   Fs:   the sampling frequency
+   fo:   the previously calculated pitch for the segment in Hz
+   m:    Matrix with the the lower and upper frequencies bands (in Hz)
+         which are used to calculate NNE is calculated. It should have two
+         rows and as many columns as bands
+   bGraficar: Plot the speech vs noise spectrum
+ Output parameters:
+ vNNEi: the normalized noise energy of the segment in the bands of
+           frequency requested.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="NNE.html" class="code" title="function [vNNE, rNNEmean]=NNE( vSignal, iFs, iInicio, iFinal, iNumPuntos, iFo )">NNE</a>	Calculates the normalized noise energy (NNE) of a speech segment (according to</li><li><a href="NNEs.html" class="code" title="function [mParametros, vNNEmean]=NNEs( vSignal, iFs, sTipo, iFrame, iSolape )">NNEs</a>	Calculates the normalized noise energy (NNE) of a voice signal,</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

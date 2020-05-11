@@ -11,15 +11,23 @@ if nargin < 2, xLab   = ''; end
 
 nameeps = [name, '.eps'];
 
-title ( titulo, 'Interpreter', 'LaTex')
-ylabel( yLab, 'Interpreter', 'LaTex' )
-xlabel( xLab, 'Interpreter', 'LaTex' )
+if ~isempty( titulo )
+    title ( titulo, 'Interpreter', 'LaTex')
+end
+if ~isempty( yLab )
+    ylabel( yLab, 'Interpreter', 'LaTex' )
+end
+if ~isempty( xLab )
+    xlabel( xLab, 'Interpreter', 'LaTex' )
+end
 pretty_xyplot
 
 % Graphics
 p = gca;
 set( gcf, 'color', 'w' );
-set( gca, 'fontsize', fontS )
+% set( gca, 'fontsize', fontS )
+set(findall(gcf,'-property','FontSize'),'FontSize',fontS)
+
 try
     set( p.Children, 'LineWidth', lineW ) % gcf
 catch e
@@ -34,7 +42,6 @@ if ~isempty( str )
     TextLocation( str,'Interpreter','latex', 'Location', 'Best' )
 end
 
-set(findall(gcf,'-property','FontSize'),'FontSize',fontS)
 set(findall(gcf,'-property','XColor'),'XColor',[.3 .3 .3])
 set(findall(gcf,'-property','YColor'),'YColor',[.3 .3 .3])
 

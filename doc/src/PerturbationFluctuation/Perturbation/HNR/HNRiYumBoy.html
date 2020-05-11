@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of HNRiYumBoy</title>
+  <meta name="keywords" content="HNRiYumBoy">
+  <meta name="description" content="Calculates the value of the HNR ratio for a speech segment corresponding to">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Perturbation</a> &gt; <a href="#">HNR</a> &gt; HNRiYumBoy.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Perturbation/HNR&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>HNRiYumBoy
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>Calculates the value of the HNR ratio for a speech segment corresponding to</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function rHNRi=HNRiYumBoy(Ci) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the value of the HNR ratio for a speech segment corresponding to
+ various pitch periods, collected in Ci, according to the Yumoto method, with the
+ Boyanov modification (average period instead of maximum period to calculate
+ the harmonic component)
+   Yumoto, E., Gould, W. J., &amp; Baer, T. (1982). Harmonics‐to‐noise ratio 
+   as an index of the degree of hoarseness. The journal of the Acoustical 
+   Society of America, 71(6), 1544-1550.
+
+   Yumoto, E., Sasaki, Y., &amp; Okamura, H. (1984). Harmonics-to-noise ratio 
+   and psychophysical measurement of the degree of hoarseness. Journal of 
+   Speech, Language, and Hearing Research, 27(1), 2-6.
+
+ Input parameters:
+   Ci:     matrix containing rows corresponding to pitch periods
+           of a segment of the voice signal, all of them with the duration
+           of the largest period (filled with zeros if necessary)
+
+ Output parameters:
+   rHNRi: the average value of the HNR</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="../../../../src/Aux/QuitaExtremos.html" class="code" title="function vSignalRecortada=QuitaExtremos( vSignal, iUmbral )">QuitaExtremos</a>	This function removes the 0's (or low amplitude values ) at the beginning or at the end</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="HNRYum.html" class="code" title="function [vHNR, rHNR]=HNRYum( vSignal, iFs, iInicio, iFinal, iNumPuntos)">HNRYum</a>	Calculates the harmonic ratio to HNR noise in dB according to the Yumoto method</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  GNE -> CalculaEnvolventesHilbert;
+  GNE -> CalculaParesHilbert;
+  GNE -> EstructuraFina;
+
+  CalculaEnvolventesHilbert [URL="CalculaEnvolventesHilbert.html"];
+  CalculaParesHilbert [URL="CalculaParesHilbert.html"];
+  EstructuraFina [URL="EstructuraFina.html"];
+  GNE [URL="GNE.html"];
+}

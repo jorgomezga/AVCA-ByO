@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of EstructuraFina</title>
+  <meta name="keywords" content="EstructuraFina">
+  <meta name="description" content="Calculate the fine structure or the glottic excitation signal (FineStructure)">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Perturbation</a> &gt; <a href="#">GNE</a> &gt; EstructuraFina.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Perturbation/GNE&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>EstructuraFina
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>Calculate the fine structure or the glottic excitation signal (FineStructure)</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function vEstructuraFina=EstructuraFina( vSenal, iFs, iOrdenLPC, rLongVentana, rDesplazamiento, cWin ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculate the fine structure or the glottic excitation signal (FineStructure)
+ of the voice signal (of sampling frequency iFs) by the LPC method
+ of iOrdenLPC order autocorrelation, with the cWin window of
+ length rLongWindow (in ms) and jump between value windows
+ iDisplacement (in ms).
+
+ Input parameters:
+   vSenal:     Row vector with the voice signal to which it is going to
+               smooth the spectrum (deconvolve with respect to formants of the vocal tract).
+   iFs:            vSenal sampling rate (Hz)
+   iOrdenLPC:      LPC reverse filter order. Must be less than the length of the window
+   rLongWindow:    Duration of the analysis window
+   rDisplacement:  Duration of the displacement (or jump) between windows
+                   of analysis. Must be less than window length
+   cWin:           String that indicates the type of the analysis window
+
+ Output parameters:
+   vFineStructure: ROW vector that stores the result: filtered signal
+                   with the approximation of the inverse of the vocal tract
+                   (fine structure or excitation of the voice signal)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="../../../../src/Aux/DeFrame.html" class="code" title="function vSenal=DeFrame( mTramas, iLongVentana, iDesplazamiento)">DeFrame</a>	Reconstructs the vSenal signal from the windows frames created by the</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="GNE.html" class="code" title="function [vGNEValues, rGNEFactor]=GNE( vSignal, iFs, iInicio, iFinal,iNumFrames, rFrameSize, iBW, iFShift )">GNE</a>	Calculates the GNE -Glottal-to-Noise Excitation ratio- according to</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

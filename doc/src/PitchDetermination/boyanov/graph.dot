@@ -1,0 +1,12 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  PicosMayores -> Picos;
+  PitchBoyanov -> DynamicClip;
+  PitchBoyanov -> PitchDetecBoy;
+
+  DynamicClip [URL="DynamicClip.html"];
+  Picos [URL="Picos.html"];
+  PicosMayores [URL="PicosMayores.html"];
+  PitchBoyanov [URL="PitchBoyanov.html"];
+  PitchDetecBoy [URL="PitchDetecBoy.html"];
+}

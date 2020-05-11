@@ -19,7 +19,7 @@ function [vGNEValues, rGNEFactor]=GNE( vSignal, iFs, iInicio, iFinal,...
 %       iStart: first sample of the section to be analyzed.
 %       iFinal: last sample of the section to be analyzed.
 %       iNumPtos: Number of temporary windows into which the signal is divided.
-%               Indicates the number of calculated GNE values​for each signal
+%               Indicates the number of calculated GNE values​ for each signal
 %               voice. Must be a positive integer and sufficient to cover the
 %               entire signal.
 %       rFrameSize: Duration (in ms) of each analysis window.
