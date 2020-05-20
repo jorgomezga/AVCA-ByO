@@ -1,0 +1,22 @@
+function [x_intersect,y_intersect]=intersectcurves(X, Y1, Y2)
+% Curve Intersections.
+% [X,Y]=CURVEINTERSECT(H1,H2) or [X,Y]=CURVEINTERSECT([H1 H2]) finds the
+% intersection points of the two curves on the X-Y plane identified
+% by the line or lineseries object handles H1 and H2.
+%
+% [X,Y]=CURVEINTERSECT(X1,Y1,X2,Y2) finds the intersection points of the
+% two curves described by the vector data pairs (X1,Y1) and (X2,Y2).
+%
+% X and Y are empty if no intersection exists.
+%
+
+vDiff=Y1-Y2;
+
+ind=find(vDiff==0);
+
+if ~isempty(ind)
+    x_intersect=X(ind);
+    y_intersect=Y1(ind);
+else
+    ind=find(vDiff
+
