@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of MS_features</title>
+  <meta name="keywords" content="MS_features">
+  <meta name="description" content="Generates the Modulation Spectra (MS) of an input signal and its">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">ModulationSpectrum</a> &gt; MS_features.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/ModulationSpectrum&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>MS_features
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Generates the Modulation Spectra (MS) of an input signal and its</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [ mFeatures, caFeatureNames, eMS] = MS_features( vSignal, iFs, sTipo, iSubMod, iFrame, iShift, eOptions, iVerbosity) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Generates the Modulation Spectra (MS) of an input signal and its
+ MS features as detailed in refs [1] and [2]
+ INPUTS:
+       vSignal: vector containing the input signal (mono)
+       iFs - The sampling rate of vSignal, in Hz.
+       sTipo    any sensible combination of the following:
+               'R'  rectangular window in time domain
+               'N'  Hanning window in time domain
+               'M'  Hamming window in time domain (default)
+               't'  triangular shaped filters in mel domain (default)
+               'n'  hanning shaped filters in mel domain
+               'm'  hamming shaped filters in mel domain
+               'C' calculate Modulation Spectra Centroids
+               'Y' calculate Modulation Spectra Dynamic Range for every
+                   Modulation Frequency Band
+               'f' normalize Centroids respect to pitch
+               'F' normalize Centroids respect to the 0Hz centroid
+               'O' calculate &quot;Low Modulation Ratio&quot; in Modulation Spectra.
+               'P' calculate Contrast, and homogeneity in Modulation Spectra modulus
+                   and phase
+               'A' Calculate Modulation Spectra Histogram features.
+        iSubMod - Number of centroids
+        iFrame - framelength in samples (minimum has to be equivalent to
+        40 ms. Otherwise MS will not contain relevant information about
+        low modulation frequency.
+        iShift - frame shift length in samples
+        eOptions - Structure containing other auxiliar and secondary
+        inputs, such as:
+               - iFmodMax - maximum modulation frequency
+               - vFlmr - max frequency used in LMR calculation
+               - EMiSubbands - desired number of acoustic subbands
+               - EMsSpecopt - desired number of modulation bands
+               - EMvFlmr - High bound of the band used to calculate LMR
+               (25 Hz by default)
+               - EMsDemod - A data structure containing demodulation options. This can
+               be a string indicating the demodulation method, or
+               alternatively a cell array specifying parameter values in
+               the fashion of the MODDECOMP... functions. The default
+               setting is {'cog', 0.1, 0.05}.
+                   {'HILB'}
+                   {'COG', &lt;carrwin&gt;, &lt;carrwinhop&gt;}
+                       carrwin - seconds.
+                       carrwinhop - seconds.
+                   {'HARM', &lt;numharmonics&gt;, &lt;voicingsens&gt;, &lt;F0smoothness&gt;}
+                       numharmonics - a positive integer.
+                        voicingsens - a decimal value (0 to 1).
+                       F0smoothness - a positive integer.
+                   {'HARMCOG', &lt;carrwin&gt;, &lt;carrwinhop&gt;, ...
+                               &lt;numharmonics&gt;, &lt;voicingsens&gt;, &lt;F0smoothness&gt;}
+        iVerbosity - if iVerbosity==1, the function displays texts related
+        to the calculation process in screen
+
+ OUTPUTS:
+       mFeatures - Matrix containing the MS features. Each row will
+       be referred to a frame and, depending on the values of sTipo,
+       will contain the features:
+       [Centroids, Dynamic range, LMR, Modulus contrast, Modulus homogeneity,
+           Phase contrast, Phase homogeneity, CIL, PALA, RALA, RALP25,
+           RALP75, Ralp95]
+       eMS - Structure containing:
+           vmMS - matrix vector containing the MS of each signal frame.
+           vMf - modulation frequencies vector
+           vAf - acoustic frequencies vector
+           data - data structure from modspectrum function
+       caFeatureNames - Includes the names of the calculated features. Has
+       the same length as the number of columns of mFeatures.
+
+ REFERENCES:
+ [1] Moro-Velázquez, L., Gómez-García, J. A., Godino-Llorente, J. I., &amp;
+ Andrade-Miranda, G. (2015). Modulation spectra morphological parameters:
+ a new method to assess voice pathologies according to the grbas scale.
+ BioMed research international, 2015.
+
+ [2] Moro-Velázquez, L., Gómez-García, J. A., &amp; Godino-Llorente, J. I.
+ (2016). Voice pathology detection using modulation spectrum-optimized
+ metrics. Frontiers in bioengineering and biotechnology, 4, 1.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="../../src/Aux/enframing_avca.html" class="code" title="function [mSignal]=enframing_avca( vSignal, iFrame, iSolape, sTipo)">enframing_avca</a>	Function which performs framing and windowing. It permits to extract</li><li><a href="../../src/ModulationSpectrum/auxiliar_functions/EM_ePar.html" class="code" title="function [ mFeatures, caFeatureNames ] = EM_ePar( ePar, vSignal, sTipo, iSubMod, eOptions, iVerbosity)">EM_ePar</a>	Generates the MS features as detailed in refs [1] and [2] using the MS</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

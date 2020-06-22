@@ -29,7 +29,7 @@ if nargin < 2, error( 'Not enough input parameters!' ); end
 [A, i_A, ~] = PicosMayores(vSignal, iFs, iInicio, iFinal, lMetodo);
 iNumPicos   = length(A); 
 
-% A contains the amplituds of the peaks that are obtained
+% A contains the amplitude of the peaks that are obtained
 vPAS        = A;
 
 % In i_A are the positions, on the voice sequence s, of the peaks found,

@@ -28,37 +28,34 @@ iFrame=fix(0.04*iFs);
 
 % The displacement between windows is 20ms (overlap 50%).
 iDesplazamiento=0.02*iFs;
-
-% Valor inicial del indice con el que recorremos el vector de muestras. Cogemos ventanas
-% centradas en el punto de an�lisis, pero el �ndice apunta al principio de la ventana.
+% Initial value of the index with which we will go through the sample vector. We take windows
+% centered on the analysis point, but the index points to the beginning of the window.
 iIndiceIni = iInicio-fix( iFrame/2 );
 
-% El n�mero de muestras de an�lisis es:
+% Number of windows
 iNumMuestras=iFinal-iInicio+1;
-
-% Por lo que el n�mero de ventanas ser�:
 iNumVent=ceil( iNumMuestras/iDesplazamiento );
 
-% La matriz C contiene 3 filas y iNumVent columnas. Cada columna corresponde
-% a un segmento, y contiene los 3 candidatos a ser su periodo fundamental en muestras.
+% Matrix C contains 3 rows and iNumVent columns. Each column corresponds
+% to a segment, and contains the 3 candidates to be its fundamental period in samples.
 C=zeros( 3, iNumVent );
 
 for n=0:iNumVent-1
     
     iIndice=fix( iIndiceIni+n*iDesplazamiento);
     
-    if (iIndice>=1) && ((iIndice+iFrame-1)<=length( vSignal )),
+    if (iIndice>=1) && ((iIndice+iFrame-1)<=length( vSignal ))
         
-        % Segmento es la voz sin enventanar (equivale a enventanado rectangular)
+        % Rectangular windowed voice frame
         vFrame = vSignal( iIndice:(iIndice+iFrame-1) );
         
         C(:,n+1)=PitchSegKas( vFrame, iFs );
     end
 end
 
-% Obtenci�n de T a partir de C:
+% Obtaining T from C:
 
-% Primero se obtiene la mediana de los primeros candidatos, contenidos en C1
+% First we obtain the median of the first candidates, contained in C1
 C1=C(1,:);
 Tmediana=median(C1);
 

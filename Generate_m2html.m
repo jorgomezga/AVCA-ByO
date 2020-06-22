@@ -2,7 +2,7 @@ clear variables
 close all
 clc
 
-addpath(genpath('./External Toolboxes/m2html/'))
+addpath(genpath('../libs/m2html/'))
 
 m2html('mfiles','./src',...
     'htmldir', 'doc',...

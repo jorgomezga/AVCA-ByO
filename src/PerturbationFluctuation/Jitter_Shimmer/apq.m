@@ -1,6 +1,6 @@
 function rA=apq(vPAS) 
 
-% Calculates the amplitude disturbance ratio in % (APQ).
+% Calculates the amplitude perturbation quotient % (APQ).
 % This APQ coincides with the perturbation quotient pq with a Smoothing factor of
 % of 11 periods
 %
@@ -8,6 +8,11 @@ function rA=apq(vPAS)
 %       vPAS is the sequence of peak amplitude values.
 %
 % Output parameters:
-%       rA amplitude disturbance ratio in% (APQ).
+%       rA amplitude perturbation quotient % (APQ).
 
-rA=pq( vPAS, 11 );
+try
+    rA = pq( vPAS, 11 );
+catch
+    warning('apq not calculated, returning NaN')
+    rA = NaN;
+end

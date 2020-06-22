@@ -1,0 +1,20 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  EM_ePar -> band_reduction;
+  EM_ePar -> contrast_ms;
+  EM_ePar -> dynamic_range_MS;
+  EM_ePar -> histoParamEM;
+  EM_ePar -> homogen_ms;
+  EM_ePar -> sintonizaEM;
+  histoParamEM -> intersectcurves;
+  histoParamEM -> sintonizaEM;
+
+  EM_ePar [URL="EM_ePar.html"];
+  band_reduction [URL="band_reduction.html"];
+  contrast_ms [URL="contrast_ms.html"];
+  dynamic_range_MS [URL="dynamic_range_MS.html"];
+  histoParamEM [URL="histoParamEM.html"];
+  homogen_ms [URL="homogen_ms.html"];
+  intersectcurves [URL="intersectcurves.html"];
+  sintonizaEM [URL="sintonizaEM.html"];
+}

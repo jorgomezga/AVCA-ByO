@@ -2,16 +2,24 @@
 digraph m2html {
   CalcularEmbDim -> CalcularTao;
   CalcularEmbDim -> cao_dim;
+  ErrorPredNorm -> LogEnergy;
+  SilentDetectorThreshold -> AC1;
+  SilentDetectorThreshold -> ErrorPredNorm;
+  SilentDetectorThreshold -> LPCcoef1;
   SilentDetectorThreshold -> LogEnergy;
   SilentDetectorThreshold -> ZeroCrossingRate;
 
+  AC1 [URL="AC1.html"];
   CalcularEmbDim [URL="CalcularEmbDim.html"];
   CalcularTao [URL="CalcularTao.html"];
   DeFrame [URL="DeFrame.html"];
+  ErrorPredNorm [URL="ErrorPredNorm.html"];
   LPC2 [URL="LPC2.html"];
+  LPCcoef1 [URL="LPCcoef1.html"];
   LogEnergy [URL="LogEnergy.html"];
   QuitaExtremos [URL="QuitaExtremos.html"];
   SilentDetectorThreshold [URL="SilentDetectorThreshold.html"];
   ZeroCrossingRate [URL="ZeroCrossingRate.html"];
   cao_dim [URL="cao_dim.html"];
+  enframing_avca [URL="enframing_avca.html"];
 }

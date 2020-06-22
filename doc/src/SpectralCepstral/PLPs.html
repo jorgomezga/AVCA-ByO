@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of PLPs</title>
+  <meta name="keywords" content="PLPs">
+  <meta name="description" content="Calculate the PLP coefficients of a signal">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">SpectralCepstral</a> &gt; PLPs.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/SpectralCepstral&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>PLPs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Calculate the PLP coefficients of a signal</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function mParametros=PLPs( vSignal, iFs, sTipo, iNumCoef, iFrame, iSolape, eOptions, iVerbosity  ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculate the PLP coefficients of a signal
+
+ Simple use:
+    mParametros=PLPs(vSignal, iFs)            % calculate PLP
+    mParametros=PLPs(vSignal, iFs, 'edD')  % include log energy, 1st and 2nd derivatives
+
+ Input parameters:
+    vSignal  speech signal
+    iFs      sample rate in Hz (default 11025)
+    sTipo    any sensible combination of the following:
+        'R'  rectangular window in time domain
+        'N'  Hanning window in time domain
+        'M'  Hamming window in time domain (default)
+        'e'  include log energy
+        'L'  long term average
+        'r'  RASTA filtering
+        'd'  include delta coefficients (dc/dt)
+        'D'  include delta-delta coefficients (d^2c/dt^2)
+        'S'  voiced/unvoiced detection
+
+    iNumCoef      number of PLP coefficients (default 12)
+    iFrame        length of frame (default power of 2 &lt;30 ms))
+    iSolape       frame increment (default iFrame/2)
+
+ Output parameters:
+    mParametros   PLP output: one frame per row</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

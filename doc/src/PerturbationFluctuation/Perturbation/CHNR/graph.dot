@@ -1,6 +1,10 @@
 /* Created by mdot for Matlab */
 digraph m2html {
+  CHNR -> CHNRi;
+  CHNRKrom -> CHNRKromi;
 
   CHNR [URL="CHNR.html"];
+  CHNRKrom [URL="CHNRKrom.html"];
+  CHNRKromi [URL="CHNRKromi.html"];
   CHNRi [URL="CHNRi.html"];
 }

@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of SecuenPitch</title>
+  <meta name="keywords" content="SecuenPitch">
+  <meta name="description" content="Calculates the pitch or amplitude sequences given a vSignal">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Jitter_Shimmer</a> &gt; SecuenPitch.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Jitter_Shimmer&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>SecuenPitch
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Calculates the pitch or amplitude sequences given a vSignal</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [vPPS, vPAs, vPitchCont, vAmpCont]=SecuenPitch( vSignal, iFs, iInicio, iFinal, iMetodo) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the pitch or amplitude sequences given a vSignal
+
+ Input parameters:
+     vSignal: column vector containing the full speech signal
+     iFs:     the sampling frequency
+     i:     Start the first sample of the section to be analyzed
+     iFinal:     the last sample of the section to be analyzed
+     iNumPuntos:     number of HNR values ​​returned
+     lMetodo:    analysis to be used: 0 (Boyanov), 1 (Kasuya).
+
+ Output parameters:
+     vPPS sequence of pitch periods (cycle to cycle).
+     vPAS sequence of peak amplitudes of signal cycles. (pitch amplitudes)
+     vPitchCont sequence &quot;contour of the pitch period&quot; (of the same duration
+             that the analyzed section; the period in seconds of each cycle
+             of voice is repeated for all samples of the cycle)
+     vAmpCont sequence &quot;contour of pitch amplitudes&quot; (of the same duration
+             that the analyzed section; the amplitude of the peak of each cycle
+             of voice is repeated for all samples of the cycle)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/Aux/QuitaExtremos.html" class="code" title="function vSignalRecortada=QuitaExtremos( vSignal, iUmbral )">QuitaExtremos</a>	This function removes the 0's (or low amplitude values ) at the beginning or at the end</li><li><a href="../../../src/PitchDetermination/Picos/PicosNeg.html" class="code" title="function [P, i_P, picos]=PicosNeg( vSignal, iFs, iInicio, iFinal, T )">PicosNeg</a>	Obtains the amplitudes P and the positions i_P of the negative peaks,</li><li><a href="../../../src/PitchDetermination/Picos/PicosNegKas.html" class="code" title="function [vAmplitudes, vPosiciones, vPicos]=PicosNegKas(vSignal, iFs, iInicio, iFinal, T)">PicosNegKas</a>	Computes the amplitudes P and the positions i_P of the negative peaks,</li><li><a href="../../../src/PitchDetermination/Picos/PicosPos.html" class="code" title="function [P, i_P, picos]=PicosPos( vSignal, iFs, iInicio, iFinal, T )">PicosPos</a>	Gets the amplitudes P and the i_P positions of the positive peaks,</li><li><a href="../../../src/PitchDetermination/Picos/PicosPosKas.html" class="code" title="function [P, i_P, picos]=PicosPosKas(vSignal, iFs, iInicio, iFinal, T)">PicosPosKas</a>	Computes the amplitudes P and the positions i_P of the positive peaks,</li><li><a href="../../../src/PitchDetermination/kasuya_feijoo/PitchKas.html" class="code" title="function T=PitchKas( vSignal, iFs, iInicio, iFinal)">PitchKas</a>	Calculate pitch using the Kasuya pitch determination algorithm</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

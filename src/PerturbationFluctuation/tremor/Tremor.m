@@ -28,7 +28,7 @@ elseif size( vSignal, 2 ) ~= 1
     vSignal=vSignal'; 
 end 
 
-[PPS, PAS, pitch_cont, amp_cont]=ParamPitch( vSignal, iFs, 1, length(vSignal), 1);
+[~, ~, pitch_cont, amp_cont]=ParamPitch( vSignal, iFs, 1, length(vSignal), 1);
 
 N=length( pitch_cont ); 
 
@@ -69,6 +69,8 @@ iFsd=iFs/D;
 % The number of samples of the subsampled samples will be
 Nd=fix(N/D);
 
+FoDataSubm= zeros(1, Nd);
+AoDataSubm= zeros(1, Nd);
 for i=1:Nd
    FoDataSubm(i)=FoDataFilt(i*D);
    AoDataSubm(i)=AoDataFilt(i*D);

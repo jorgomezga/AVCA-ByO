@@ -47,15 +47,9 @@
 
                'Rabiner_StaticClip': Static clipping -&gt; Signal is clipped using
                        static thresholds
-
                'Rabiner_LPC'
-               metodo=2: Correlación: se calcula el pitch sobre la correlación del
-                         error de una predicción LPC
-
                'Rabiner_Cesptral'
-               metodo=3: Cepstrum: se calcula el pitch utilizando el cepstrum
-
-               'Kasuya': 
+               'Kasuya' according to: 
                    Kasuya, H., Ogawa, S., Kikuchi, Y., &amp; Ebihara, S. (1986). 
                    An acoustic analysis of pathological voice and its application 
                    to the evaluation of laryngeal pathology. 
@@ -70,12 +64,12 @@ This function calls:
 <li><a href="../../src/PitchDetermination/boyanov/PitchBoyanov.html" class="code" title="function iFo = PitchBoyanov( vFrame, iFs, iT0 )">PitchBoyanov</a>	Calculates the pitch of a given frame using the method described in:</li><li><a href="../../src/PitchDetermination/kasuya_feijoo/PitchSegKas.html" class="code" title="function vT0 = PitchSegKas( vFrame, iFs )">PitchSegKas</a>	Calculates the pitch of a given frame using the method described by</li><li><a href="../../src/PitchDetermination/rabiner/PitchCeps.html" class="code" title="function iF0=PitchCeps( vFrame, iFs, iT0 )">PitchCeps</a>	Pitch estimation using the LPC method of Rabiner</li><li><a href="../../src/PitchDetermination/rabiner/PitchClip.html" class="code" title="function iF0 = PitchClip( vFrame, iFs, iT0 )">PitchClip</a>	Pitch estimation using static clipping</li><li><a href="../../src/PitchDetermination/rabiner/PitchCorr.html" class="code" title="function iF0 = PitchCorr( vFrame, iFs, iT0 )">PitchCorr</a>	Pitch estimation using the LPC method of Rabiner</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="../../src/PitchDetermination/boyanov/PicosMayores.html" class="code" title="function [vAmax, vPosAmax, mPicosPos]=PicosMayores( vSignal, iFs, iInicio, iFinal, lMetodo )">PicosMayores</a>	Calculate the highest energy peaks, cycle by cycle of the input voice</li></ul>
+</ul>
 <!-- crossreference -->
 
 
 
 
-<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

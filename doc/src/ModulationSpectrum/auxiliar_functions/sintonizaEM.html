@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sintonizaEM</title>
+  <meta name="keywords" content="sintonizaEM">
+  <meta name="description" content="Limits Modulation Spectra (vmMS) to the specified modulation (iFmodMax)">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">ModulationSpectrum</a> &gt; <a href="#">auxiliar_functions</a> &gt; sintonizaEM.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/ModulationSpectrum/auxiliar_functions&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>sintonizaEM
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Limits Modulation Spectra (vmMS) to the specified modulation (iFmodMax)</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function vmOut=sintonizaEM(vmMS,vMf,vAf,iFmodMax,iFaMin,iFaMax) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Limits Modulation Spectra (vmMS) to the specified modulation (iFmodMax)
+ and acoustic (iFaMin, iFaMax) ranges.
+
+ INPUTS:
+           vmMS - matrix vector containing the modulation spectrum.
+           vMf - vector containing the modulation frequency bins
+           vAf - vector containing the acoustic frequency bins
+           iFmodMax - maximum modulation frequency
+           iFaMin - minimum acoustic frequency
+           iFaMax - maximum acoustic frequency
+
+ OUTPUTS:
+           vmOut - matrix vector containing the output modulation
+           spectrum, with new acoustic and modulation frequency limits</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="EM_ePar.html" class="code" title="function [ mFeatures, caFeatureNames ] = EM_ePar( ePar, vSignal, sTipo, iSubMod, eOptions, iVerbosity)">EM_ePar</a>	Generates the MS features as detailed in refs [1] and [2] using the MS</li><li><a href="histoParamEM.html" class="code" title="function [mParamHist]=histoParamEM(vmMS, bTuned, vMf, vAf)">histoParamEM</a>	[mParamHist]=histoParamEM(vmMS)</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

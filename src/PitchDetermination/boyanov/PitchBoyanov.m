@@ -24,11 +24,10 @@ VOICED_THRESHOLD=0.3;
 if bSound
     % Central clipping with dynamic adaptation of clipping thresholds
     % eliminate noise and formant components difficulting F0 calculation.
-    vSegClip = DynamicClip( vFrame );
-    
-    vProc = vSegClip;
+    vProc = DynamicClip( vFrame );
 else
-    iFo = 0;
+%     iFo = 0;
+    iFo = NaN;
     return
 end
 

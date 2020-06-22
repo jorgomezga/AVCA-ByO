@@ -2,22 +2,17 @@ clear variables
 close all
 clc
 
-addpath( genpath( '/home/jorge/qov-byo' ) )
+addpath(genpath('../../'))
+addpath(genpath('../../../libs'))
 
-sDir = '/home/jorge/Dropbox/Toolbox_Part3/Audios';
-
-vSignalNorm  = audioread( fullfile( sDir, '1-a_n.wav' ) );
-vSignalPath  = audioread( fullfile( sDir, '1424-a_n.wav' ) );
+sDir = '../../Audios';
+[vSignalNorm, iFs]  = audioread( fullfile( sDir, 'asra.wav' ) );
+vSignalPath  = audioread( fullfile( sDir, 'cgra.wav' ) );
 
 %% Parameters
-iFs       = 50e3;
 iFrame    = ceil( 40e-3*iFs ); 
-rSolape   = 0.5;
-iSolape   = floor( (1 - rSolape)*iFrame );
+iSolape   = floor( 0.5*iFrame );
 sNorm     = 'chebychev';
-sTipo     = 'M';
-eOptions  = [];
-iVerbosity = 1;
 
 dim       = 8;
 tau       = 20;

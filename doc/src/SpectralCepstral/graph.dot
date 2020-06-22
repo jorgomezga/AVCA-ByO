@@ -1,5 +1,9 @@
 /* Created by mdot for Matlab */
 digraph m2html {
+  MFCCs -> MFCCi;
 
   MFCCi [URL="MFCCi.html"];
+  MFCCs [URL="MFCCs.html"];
+  PLPi [URL="PLPi.html"];
+  PLPs [URL="PLPs.html"];
 }

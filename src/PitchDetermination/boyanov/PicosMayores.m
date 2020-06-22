@@ -30,18 +30,17 @@ if nargin < 2, error( 'Not enough input parameters!' ); end
 
 switch lMetodo
     case 0 % (Boyanov)
-        % Se obtiene la secuencia de periodos de pitch por el m�todo de Boyanov (ventanas
-        % de 3 To, primera ventana de 34 ms, no hay solapamiento entre ventanas).
-        %         vT=Pitch( vSignal, iFs, iInicio, iFinal );
         
-        % iFrame = 40ms
-        iFrame=fix(0.034*iFs);
-        % iDesplazamiento = 20ms (overlpa of 50%).
-        iDesplazamiento=iFrame/2;
-        % Total number of windows
-        iNumVent=ceil( length( vSignal )/iDesplazamiento );
-        [~, vF0] = CalculatePitch( vSignal, iFs, iNumVent, 'Boyanov' );
-        vT = round( iFs./vF0 );
+%         % iFrame = 40ms
+%         iFrame=fix(0.034*iFs);
+%         % iDesplazamiento = 20ms (overlpa of 50%).
+%         iDesplazamiento=iFrame;%/2;
+%         % Total number of windows
+%         iNumVent=ceil( length( vSignal )/iDesplazamiento );
+%         [~, vF0] = CalculatePitch( vSignal, iFs, iNumVent, 'Boyanov' );
+%         vT = round( iFs./vF0 );
+
+        vT = PitchBoy( vSignal, iFs, iInicio, iFinal );
         
         % Postive peaks
         [vApos, vPpos, vPicosPos]=Picos( vSignal, iFs, iInicio, iFinal, vT, 1);
@@ -51,18 +50,18 @@ switch lMetodo
         
     case 1 % (kasuya)
         
-        %        % Se obtiene la secuencia de periodos de pitch por el m�todo de Kasuya (Feijoo), es
-        %        % decir, con ventanas de 40ms y 50% de solape.
-        %        vT=PitchKas( vSignal, iFs, iInicio, iFinal );
+%         % iFrame = 40ms
+%         iFrame=fix(0.04*iFs);
+%         % iDesplazamiento = 20ms (overlap of 50%).
+%         iDesplazamiento=iFrame/2;
+%         % Total number of windows
+%         iNumVent=ceil( length( vSignal )/iDesplazamiento );
+%         [~, vF0] = CalculatePitch( vSignal, iFs, iNumVent, 'Kasuya' );
+%         vT = round( iFs./vF0 );
         
-        % iFrame = 40ms
-        iFrame=fix(0.04*iFs);
-        % iDesplazamiento = 20ms (overlap of 50%).
-        iDesplazamiento=iFrame/2;
-        % Total number of windows
-        iNumVent=ceil( length( vSignal )/iDesplazamiento );
-        [~, vF0] = CalculatePitch( vSignal, iFs, iNumVent, 'Kasuya' );
-        vT = round( iFs./vF0 );
+        % The sequence of pitch periods is obtained by the Kasuya (Feijoo) method, 
+        % with 40ms windows and 50% overlap.
+        vT=PitchKas( vSignal, iFs, iInicio, iFinal );        
         
         % Null values that exist at the beginning and ending of the frame are removed if the
         % first sample of signal s or last sample are included in the analysis.
@@ -111,5 +110,5 @@ end
 if nargout ==0
     vEje=( iInicio:iFinal )/iFs;
     plot( vEje, vSignal( iInicio:iFinal ),'r', vEje, mPicosPos( iInicio:iFinal ),'g');
-    title('picos mayores');
+    title('Major peaks');
 end

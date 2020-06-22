@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of CHNRKrom</title>
+  <meta name="keywords" content="CHNRKrom">
+  <meta name="description" content="Calculates the harmonic-to-noise ratio (HNR) of a voice signal, using">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Perturbation</a> &gt; <a href="#">CHNR</a> &gt; CHNRKrom.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Perturbation/CHNR&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>CHNRKrom
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>Calculates the harmonic-to-noise ratio (HNR) of a voice signal, using</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function [vHNR, rHNRmean]=CHNRKrom( vSignal, iFs, iInicio, iFinal, iNumPuntos, iFo ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the harmonic-to-noise ratio (HNR) of a voice signal, using
+ the method of G. de Krom [1] based on the cepstrum.
+
+ [1] Guus de Krom, &quot;A cepstrum-based technique for determining a
+ harmonics-to-noise ratio in speech signals &quot;, J.Speech Hear.Res., vol.
+ 36, no. 2, pp. 254-266, 1993.
+
+ Input parameters
+ vSignal:  Column vector containing the complete speech signal
+ iFs:      the sampling rate
+ i:        Start the first sample of the section to be analyzed
+ iFinal:   the last sample of the section to be analyzed
+ iNumPoints: the number of HNR values returned
+ iFo:      Pitch frequency of the voice
+
+ Output parameters
+ rHNR:     Row vector of dimension &quot;iNumPuntos&quot; that contains the
+           instantaneous values of the HNR
+ rHNRmean: the average value of the HNR</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="CHNRKromi.html" class="code" title="function HNRi=CHNRKromi( vFrame, iFs )">CHNRKromi</a>	Calculates the harmonic-to-noise ratio (HNR) of a voice segment, using</li><li><a href="../../../../src/PitchDetermination/kasuya_feijoo/PitchMedio.html" class="code" title="function [rFo, vF0]=PitchMedio( vSignal, iFs, iInicio, iFinal )">PitchMedio</a>	Calculates the average pitch in Hz of the input voice</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

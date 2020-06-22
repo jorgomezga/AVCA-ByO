@@ -21,7 +21,7 @@ function vEstructuraFina=EstructuraFina( vSenal, iFs, iOrdenLPC, rLongVentana, r
 %                   with the approximation of the inverse of the vocal tract
 %                   (fine structure or excitation of the voice signal)
 
-if nargin < 6, cWin='Hanning'; end
+if nargin < 6, cWin='hann'; end
 if nargin < 5, rDesplazamiento=10e-3; end
 if nargin < 4, rLongVentana=30e-3; end 
 if nargin < 3, iOrdenLPC=13; end
@@ -74,7 +74,7 @@ iLongFinalSenalRell=(iNumVentanasRell-1)*iDesplazamiento+iLongVentana;
 vSenalRell=[vSenalRell zeros(1,iLongFinalSenalRell-iLongSenalRell)]; 
 
 % Windowing. As row vector
-vWin=window(iLongVentana,cWin); 
+vWin=window(cWin,iLongVentana); 
 % vWin=hann(iLongVentana);
 vWin=vWin'; 
 

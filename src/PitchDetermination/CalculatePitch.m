@@ -20,15 +20,9 @@ function [iF0Out, vF0] = CalculatePitch( vSignal, iFs, iNumberOfFrames, sType )
 %
 %               'Rabiner_StaticClip': Static clipping -> Signal is clipped using
 %                       static thresholds
-%
 %               'Rabiner_LPC'
-%               metodo=2: Correlación: se calcula el pitch sobre la correlación del
-%                         error de una predicción LPC
-%
 %               'Rabiner_Cesptral'
-%               metodo=3: Cepstrum: se calcula el pitch utilizando el cepstrum
-%
-%               'Kasuya': 
+%               'Kasuya' according to: 
 %                   Kasuya, H., Ogawa, S., Kikuchi, Y., & Ebihara, S. (1986). 
 %                   An acoustic analysis of pathological voice and its application 
 %                   to the evaluation of laryngeal pathology. 

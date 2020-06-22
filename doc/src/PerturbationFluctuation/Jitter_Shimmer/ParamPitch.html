@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ParamPitch</title>
+  <meta name="keywords" content="ParamPitch">
+  <meta name="description" content="Calculates the pitch period and pitch amplitude sequences of the input voice">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">PerturbationFluctuation</a> &gt; <a href="#">Jitter_Shimmer</a> &gt; ParamPitch.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for ./src/PerturbationFluctuation/Jitter_Shimmer&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>ParamPitch
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Calculates the pitch period and pitch amplitude sequences of the input voice</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [vPPS, vPAS, vPitchCont, vAmpCont]=ParamPitch( vSignal, iFs, iInicio, iFinal, lMetodo) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> Calculates the pitch period and pitch amplitude sequences of the input voice
+
+ Input parameters:
+ &quot;vSignal&quot;:     is a column vector containing the complete speech signal
+ &quot;iFs&quot;:         is the sample rate
+ &quot;iInicio&quot;:     is the first sample of the section to be analyzed
+ &quot;iFinal&quot;:      is the last sample of the section to be analyzed
+ &quot;iNumPuntos&quot;:  is the number of HNR values ​​that are returned
+ &quot;Method&quot;:      is the analysis method to be used: 0 (Boyanov), 1 (Kasuya).
+
+ Output parameters:
+ &quot;vPPS&quot;:       sequence of signal pitch periods (cycle by cycle).
+ &quot;vPAS&quot;:       sequence of amplitudes of the peaks of the signal cycles.
+               (pitch amplitudes)
+ &quot;vPitchCont&quot;: sequence &quot;contour of the pitch period&quot; (of the same duration
+               that the section analyzed; the period in seconds of each cycle
+               of voice is repeated for all samples of the cycle)
+ &quot;vAmpCont&quot;:   sequence &quot;contour of pitch amplitudes&quot; (of the same duration
+               that the section analyzed; the amplitude of the peak of each cycle
+               of voice is repeated for all samples of the cycle)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/PitchDetermination/boyanov/PicosMayores.html" class="code" title="function [vAmax, vPosAmax, mPicosPos]=PicosMayores( vSignal, iFs, iInicio, iFinal, lMetodo )">PicosMayores</a>	Calculate the highest energy peaks, cycle by cycle of the input voice</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="../../../src/PerturbationFluctuation/JitterShimmer.html" class="code" title="function [vJitter, vShimmer] = JitterShimmer( vSignal, iFs )">JitterShimmer</a>	Calculation of the perturbation and fluctuation parameters</li><li><a href="../../../src/PerturbationFluctuation/tremor/Tremor.html" class="code" title="function [rFftr, rFatr, rFTRI, rATRI]=Tremor( vSignal, iFs )">Tremor</a>	Calculates the tremor (parameters that modulate the pitch period and</li></ul>
+<!-- crossreference -->
+
+
+
+
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

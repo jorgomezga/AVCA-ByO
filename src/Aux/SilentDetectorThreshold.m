@@ -17,6 +17,8 @@ logEnergy = LogEnergy( vFrame );
 THRESH_VOICE_ENER=-40;
 THRESH_VOICE_ZCR=0.3;
 
+bSound = false;
+
 % Si el segmento supera un umbral de energ�a o de TCC se considera que es voz y se
 % analiza su sonoridad, sino se termina y se devuelve S=0
 if logEnergy > THRESH_VOICE_ENER...

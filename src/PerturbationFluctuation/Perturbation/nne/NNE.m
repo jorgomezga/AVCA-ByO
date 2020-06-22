@@ -40,50 +40,46 @@ if iFo == 0
     iFo = iFs/rFo;
 end
 
-% Con 7 periodos de pitch se consigue suficiente resolución espectral. 
+% With 7 pitch periods sufficient spectral resolution is achieved.
 if iFo~=0
    iTamVent = 7*round( iFo );
 else
    iTamVent = 7*round( 0.015*iFs );
 end
 
-iN = iFinal-iInicio+1; % Número de muestras de análisis
+iN = iFinal-iInicio+1; 
 
-
-%%% Condicion para evitar error
+%%% To avoid errors
 if iTamVent>iN
-    % Se ajusta el tamaño de la ventana para que quepan 3 ventanas al 50%
-    % de traslape
+    % Adjusts window size to fit 3 windows to 50% overlap
     iTamVent = fix(2*(iFinal-iInicio)/(iNumPuntos+1));
 end
 
 if iNumPuntos==1
         vFrame = vSignal( iInicio:(1+iTamVent-1) );
 
-        % Se calcula el pitch del segmento en estudio usando el m�todo de
-        % Boyanov para el dominio temporal. Se pasa ToAnt=0.
-        iFoi=PitchBoyTem( vFrame, iFs, 0 );
-        if iFoi~=0 % Si el segmento es sonoro se calcula su NNE
+        % Pitch calculation using the Boyanov Method
+        iFoi=PitchBoyanov( vFrame, iFs, 0 );
+        if iFoi~=0 
+            % Only calculated if the segment is sound
             vFrame=vFrame-mean( vFrame );
             vFrame=vFrame.*hamming( iTamVent );
 
             vNNE=NNEi( vFrame, iFs, iFoi, [800;2500] );
-        else  % Si el segmento es sordo la NNE toma un valor arbitrario nulo
+        else
+            % If it is not sound, then an arbitrary value is given
             vNNE=0;
         end
         
         return
 end
 
-
-
-% Necesitamos iNumPuntos ventanas de análisis de tamaño iTamVent, por lo
-% que ajustamos el solapamiento para que quepan en las iN muestras que
-% tenemos.
+% We need iNumPoints analysis windows of iTamVent size, so that we adjust 
+% the overlap to fit the iN samples that we have.
 iResto = rem( iN, iNumPuntos-1 );
-rSolape = (iTamVent - iResto) / (iNumPuntos-1); % no se redondea para no acumular errores. 
-iAux = floor(iN/(iNumPuntos-1)); % Tamaño que deberían tener las ventanas para caber sin solapar
-rAvance = iAux - rSolape; % no se redondea para no acumular errores. 
+rSolape = (iTamVent - iResto) / (iNumPuntos-1); 
+iAux = floor(iN/(iNumPuntos-1)); % Number of windows without overlapping
+rAvance = iAux - rSolape; 
 
 for n=0:iNumPuntos-1
     if n==0
@@ -93,27 +89,25 @@ for n=0:iNumPuntos-1
     end
     
     if iIndice+iTamVent-1 <= length( vSignal )
-        % vFrame es la voz sin enventanar (equivale a enventanado rectangular)
+        % Voice frame considering rectangular frames
         vFrame = vSignal( iIndice:(iIndice+iTamVent-1) );
 
-        % Se calcula el pitch del segmento en estudio usando el método de
-        % Boyanov para el dominio temporal. Se pasa ToAnt=0.
-        iFoi=PitchBoyTem( vFrame, iFs, 0 );
+        % Calculate pitch using Boyanov's method. Using ToAnt=0 for a start
+        iFoi=PitchBoyanov( vFrame, iFs, 0 );
         if iFoi~=0 % Si el segmento es sonoro se calcula su NNE
             vFrame=vFrame-mean( vFrame );
             vFrame=vFrame.*hamming( iTamVent );
 
-           % vNNE(n+1)=NNEi( vFrame, iFs, iFoi, [800;2500] ); %valores
-           % óptimos para detección de patología
+           % vNNE(n+1)=NNEi( vFrame, iFs, iFoi, [800;2500] ); %valores óptimos para detección de patología
             vNNE(n+1)=NNEi( vFrame, iFs, iFoi, [1000; 5000] );
-        else  % Si el segmento es sordo la NNE toma un valor arbitrario nulo
+        else              
+            % If it is not sound, then an arbitrary value is given
             vNNE(n+1)=0;
         end
     end
 end
 
-% Hallamos el promedio de los valores obtenidos para calcular el factor
-% NNE total. Los que hayan salido cero no los tenemos en cuenta
+% Mean calculation, ignoring the 0 values
 rPromedio=0;
 j=0;
 for i=1:length( vNNE )
@@ -123,7 +117,7 @@ for i=1:length( vNNE )
     end
 end
 
-% Comprobamos que j sea mayor que cero.
+% Check that j>0
 if j>0
     rNNEmean = rPromedio/j;
 else
@@ -132,5 +126,5 @@ end
 
 if nargout == 0       
     figure; plot( vNNE );
-    title('NNE según el metodo de Kasuya');
+    title('NNE using Kasuya method');
 end 

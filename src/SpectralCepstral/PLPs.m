@@ -69,14 +69,12 @@ if nargout == 0
     %     [~, spec2] = rastaplp(vSignal, iFs, 0, iNumCoef);
     
     % Calculate HTK-style PLPs
-    maxFreq = round(iFs/2);
-    
+    maxFreq = round(iFs/2);    
     
     plp = melfcc( vSignal, iFs, 'lifterexp', -22, 'nbands', 20, ...
         'dcttype', 1, 'maxfreq', maxFreq, 'fbtype', 'htkmel', 'preemph', 0, 'dither', 1,...
         'modelorder', 12, 'usecmp',1, 'wintime', iFrame/iFs, 'hoptime', iSolape/iFs);
-    
-    
+        
 %     [mm,~] = melfcc( vSignal, iFs, 'maxfreq', maxFreq, 'numcep', iNumCoef,...
 %         'nbands', 22, 'fbtype', 'fcmel', 'dcttype', 1, 'usecmp', 1,...
 %         'wintime', iFrame/iFs, 'hoptime', iSolape/iFs, 'preemph', 0, 'dither', 1 );

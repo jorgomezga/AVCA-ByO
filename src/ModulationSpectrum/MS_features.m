@@ -56,8 +56,8 @@ function [ mFeatures, caFeatureNames, eMS] = MS_features( vSignal, iFs, sTipo, i
 %       mFeatures - Matrix containing the MS features. Each row will
 %       be referred to a frame and, depending on the values of sTipo,
 %       will contain the features:
-%       [Centroids, Dynamic range, LMR, Modulus contrast, Modulus homogeneity, 
-%           Phase contrast, Phase homogeneity, CIL, PALA, RALA, RALP25, 
+%       [Centroids, Dynamic range, LMR, Modulus contrast, Modulus homogeneity,
+%           Phase contrast, Phase homogeneity, CIL, PALA, RALA, RALP25,
 %           RALP75, Ralp95]
 %       eMS - Structure containing:
 %           vmMS - matrix vector containing the MS of each signal frame.
@@ -65,20 +65,17 @@ function [ mFeatures, caFeatureNames, eMS] = MS_features( vSignal, iFs, sTipo, i
 %           vAf - acoustic frequencies vector
 %           data - data structure from modspectrum function
 %       caFeatureNames - Includes the names of the calculated features. Has
-%       the same length as the number of columns of mFeatures. 
+%       the same length as the number of columns of mFeatures.
 %
 % REFERENCES:
-% [1] Moro-Velázquez, L., Gómez-García, J. A., Godino-Llorente, J. I., & 
-% Andrade-Miranda, G. (2015). Modulation spectra morphological parameters: 
-% a new method to assess voice pathologies according to the grbas scale. 
+% [1] Moro-Velázquez, L., Gómez-García, J. A., Godino-Llorente, J. I., &
+% Andrade-Miranda, G. (2015). Modulation spectra morphological parameters:
+% a new method to assess voice pathologies according to the grbas scale.
 % BioMed research international, 2015.
 %
-% [2] Moro-Velázquez, L., Gómez-García, J. A., & Godino-Llorente, J. I. 
-% (2016). Voice pathology detection using modulation spectrum-optimized 
+% [2] Moro-Velázquez, L., Gómez-García, J. A., & Godino-Llorente, J. I.
+% (2016). Voice pathology detection using modulation spectrum-optimized
 % metrics. Frontiers in bioengineering and biotechnology, 4, 1.
-
-
-
 
 if nargin<2, error('Please, include a sampling frequency' ); end
 if nargin<3, sTipo='MCYFOPA'; end % All features are calculated, using Hamming windowing
@@ -97,57 +94,53 @@ else, sSpecopt= 1024; end
 if isfield (eOptions, 'EMsDemod' ), sDemod=eOptions.EMsDemod;
 else, sDemod= 'HILB'; end
 
-    %iFil: input signal length
-    [iFil]=size(vSignal,1);
-    
-    if iFrame>iFil
-        iFrame=iFil;
-    end
-    
-    if iFrame<round(iFs*0.04)
-        iFrame=round(iFs*0.04);
-        warning(['iFrame must be longer than 40 ms of samples. Changing iFrame to: ' num2str(iFrame)])
-    end
-    
-    %% Framing plus windowing
-    [mSignal]=enframing_avca( vSignal, iFrame, iShift, sTipo );
-    
-    iNumtramas=size(mSignal,1); % Number of frames
-    
-     if length(iSubbands)>1
-      vBandas=iSubbands; % vBandas contains subband acoustic frequency boundaries
-      iNumBands=length(vBandas)-1;
-    else
-       vBandas=(iFs/2)/(iSubbands-1); % vBandas contains acoustic bandwidth for uniform-width
-%               subbands
-   
-     iNumBands=iSubbands;
-    end
-    
-    % Output matrix vector
-    vmMS=zeros(iNumBands, sSpecopt,iNumtramas);
-    eOptions.iShift=iShift;
-    
-    for j=1:iNumtramas
-        
-        [vmMS(:,:,j),vMf,vAf,data]=...
-        modspectrum(mSignal(j,:),iFs, sDemod, vBandas, sSpecopt);
-        % vMf y vAf are respectively the same for every frame.
-    end
+%iFil: input signal length
+[iFil]=size(vSignal,1);
 
-    eMS=struct('vmMS', vmMS, 'vMf', vMf, 'vAf', vAf, 'data', data);
-    
-    if iVerbosity
-        disp('Modulation spectrum feature calculation')
-    end
- 
-    % Once vmMS is calculated, MS features can be calculated:
-    [ mFeatures, caFeatureNames ] = EM_ePar( eMS, vSignal, sTipo, iSubMod, eOptions, iVerbosity);
-  
-    if nargout<3
-         eMS=[];
-    end
-  
-
+if iFrame>iFil
+    iFrame=iFil;
 end
 
+if iFrame<round(iFs*0.04)
+    iFrame=round(iFs*0.04);
+    warning(['iFrame must be longer than 40 ms of samples. Changing iFrame to: ' num2str(iFrame)])
+end
+
+%% Framing plus windowing
+[mSignal]=enframing_avca( vSignal, iFrame, iShift, sTipo );
+
+iNumtramas=size(mSignal,1); % Number of frames
+
+if length(iSubbands)>1
+    vBandas=iSubbands; % vBandas contains subband acoustic frequency boundaries
+    iNumBands=length(vBandas)-1;
+else
+    vBandas=(iFs/2)/(iSubbands-1); % vBandas contains acoustic bandwidth for uniform-width
+    %               subbands
+    
+    iNumBands=iSubbands;
+end
+
+% Output matrix vector
+vmMS=zeros(iNumBands, sSpecopt,iNumtramas);
+eOptions.iShift=iShift;
+
+for j=1:iNumtramas
+    
+    [vmMS(:,:,j),vMf,vAf,data]=...
+        modspectrum(mSignal(j,:),iFs, sDemod, vBandas, sSpecopt);
+    % vMf y vAf are respectively the same for every frame.
+end
+
+eMS=struct('vmMS', vmMS, 'vMf', vMf, 'vAf', vAf, 'data', data);
+
+if iVerbosity
+    disp('Modulation spectrum feature calculation')
+end
+
+% Once vmMS is calculated, MS features can be calculated:
+[ mFeatures, caFeatureNames ] = EM_ePar( eMS, vSignal, sTipo, iSubMod, eOptions, iVerbosity);
+
+if nargout<3
+    eMS=[];
+end

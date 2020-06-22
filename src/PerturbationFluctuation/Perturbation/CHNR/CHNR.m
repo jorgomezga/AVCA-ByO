@@ -70,7 +70,7 @@ for n=0:iNumPuntos-1
     if (iIndice>=1) && ((iIndice+iTamVent-1)<=length( vSignal ))
         % vSegment is the voice without windowing (equivalent to rectangular windowing)
         vSegmento = vSignal( iIndice : (iIndice+iTamVent-1));
-        vHNR(n+1) = HNRi( vSegmento, iFs );
+        vHNR(n+1) = CHNRi( vSegmento, iFs );
     end
 end 
 

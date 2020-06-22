@@ -24,7 +24,7 @@
 <div class="box"><strong>Computes the amplitudes P and the i_P positions of the positive or negative peaks</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function [P, i_P, mPicosPos]=Picos( vSignal, iFs, iInicio, iFinal, T, pos_neg ) </strong></div>
+<div class="box"><strong>function [P, i_P, mPicosPos]=Picos( vSignal, iFs, iInicio, iFinal, vPitchPeriods, pos_neg ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> Computes the amplitudes P and the i_P positions of the positive or negative peaks
@@ -37,7 +37,7 @@
    iFs:            is the sampling frequency
      iInicio:        is the first sample of the voice to be analyzed
    iFinal:         is the last sample of the section to be analyzed
-   T:              T is the sequence of pitch period values (in samples)
+   vPitchPeriods:  is the sequence of pitch period values (in samples)
                    calculated on windows of duration 3To without overlap,
                    where To is the pitch period in samples from the previous segment,
                    and 34ms the duration of the first window, as Boyanov does.
@@ -69,6 +69,6 @@ This function is called by:
 
 
 
-<hr><address>Generated on Mon 11-May-2020 01:48:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Mon 22-Jun-2020 18:44:17 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

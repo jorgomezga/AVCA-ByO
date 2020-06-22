@@ -2,30 +2,22 @@ clear variables
 close all
 clc
 
-addpath( genpath( '/home/jorge/qov-byo' ) )
+addpath(genpath('../../'))
+addpath(genpath('../../../libs'))
 
-sDir = '/home/jorge/Dropbox/Toolbox_Part3/Audios';
-vSignalNorm  = audioread( fullfile( sDir, '1-a_n.wav' ) );
-vSignalPath  = audioread( fullfile( sDir, '1424-a_n.wav' ) );
+sDir = '../../Audios';
+[vSignalNorm, iFs]  = audioread( fullfile( sDir, 'asra.wav' ) );
+vSignalPath  = audioread( fullfile( sDir, 'cgra.wav' ) );
 
-%% Parameters
-iFs       = 50e3;
-iFrame    = ceil( 40e-3*iFs ); 
-rSolape   = 0.5;
-iSolape   = floor( (1 - rSolape)*iFrame );
+iFrame      = ceil( 40e-3*iFs ); 
+iOverlap    = floor( 0.5*iFrame );
 
 %% Norm
+[vJitterNorm, vShimmerNorm]  = JitterShimmer( vSignalNorm, iFs );
+vFluctuationNorm = Fluctuation( vSignalNorm, iFs );
+vAdditiveNoiseNorm = AdditiveNoise( vSignalNorm, iFs, iFrame, iOverlap );
 
-
-% [vParametros, caNombres] = PerturbationFluctuation( vSignalNorm, iFs );
-[vParametros, caNombres] = PerturbationFluctuation( vSignalPath, iFs );
-
-% Use the voicebox toolbox
-mSignal = enframe( vSignalNorm, hamming( iFrame ), iSolape );
-
-for j=1:size( mSignal, 1 )
-
-    vFrame = mSignal(j,:);
-    vFrame = normalize( vFrame, 'zscore' );    
-    
-end
+%% Path
+[vJitterPath, vShimmerPath]  = JitterShimmer( vSignalPath, iFs );
+vFluctuationPath = Fluctuation( vSignalPath, iFs );
+vAdditiveNoisePath = AdditiveNoise( vSignalPath, iFs, iFrame, iOverlap );

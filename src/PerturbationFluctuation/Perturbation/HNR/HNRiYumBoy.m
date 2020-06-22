@@ -31,7 +31,7 @@ P=zeros(1,n_periodos);
 for i=1:n_periodos
    P(i)=length( QuitaExtremos(Ci(i,:)));
 end
-periodoMed=round( Moda(P) );
+periodoMed=round( mode(P) );
 
 Ca=mean(Ci(:,1:periodoMed));
 
